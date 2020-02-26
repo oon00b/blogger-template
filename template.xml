@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.locale.languageDirection' expr:lang='data:blog.locale.language' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+&lt;!--<head/>--&gt;
+<head>
+<meta charset='utf-8'/>
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<base expr:href='data:blog.homepageUrl'/>
+<title><b:eval expr='data:view.title.escaped + (data:view.isPost ? " - " + data:blog.title.escaped : "")'/></title>
+<link expr:href='data:blog.url.canonical' rel='canonical'/>
+<link expr:href='data:blog.blogspotFaviconUrl' rel='icon preload' as='image'/>
+<b:skin><![CDATA[.footer-bloggerIcon{width:1em;height:1em;vertical-align:middle;fill:#839496;background-color:inherit}.footer,.header{flex-shrink:0;color:#839496;background-color:#002b36}.footer a:link,.header a:link,.footer a:visited,.header a:visited{color:#839496;background-color:#002b36}.mainContainer-pagination{display:flex;flex-wrap:wrap;margin:3em 0 2em 0}.mainContainer-pagination>*{margin-right:2em}*{box-sizing:border-box}body{display:flex;flex-direction:column;min-height:100vh;overflow-wrap:break-word;word-wrap:break-word;margin:0;line-height:1.6;font-family:sans-serif;color:#93a1a1;background-color:#073642}a{color:#b58900;text-decoration:underline}a:hover,a:focus{outline:thin dashed}a:active{outline:medium solid}a:visited{color:#cb4b16}mark{color:#073642;background-color:#93a1a1}hr{border-color:#586e75}pre,code,samp,kbd{font-size:1em;font-family:monospace, monospace}code,samp{white-space:pre-wrap}pre>code,pre>samp{white-space:pre}table{border-collapse:collapse}.header-title{margin:0;font-size:1.3em}.footer{display:flex;flex-direction:column;align-items:center}.footer>*{margin:1em 0}.widgets{flex-grow:1}.widgets>*{margin:0 auto;max-width:95%}.post--index{margin:1em 0}.post-header{border-bottom:thin solid #586e75}.post-title{margin:0;font-size:1.3em}.post-meta{margin-top:0.625em;font-size:0.8em;display:flex;flex-wrap:wrap}.post-meta>*{display:block}.post-date{margin-right:2em}.archives{margin:2em 0}.archives-title{margin:0;font-size:1.1em;border-bottom:thin solid #586e75}.archives-monthly{padding-left:2.5em}.labels{margin:2em 0}.labels-title{margin:0;font-size:1.1em;border-bottom:thin solid #586e75}]]></b:skin>
+<b:if cond='data:view.isPost'>
+<style>.comment-authorIcon,.comments-commentIcon,.post-authorIcon{width:1em;height:1em;vertical-align:middle;fill:#839496;background-color:inherit}.comments-pagination{display:flex;flex-wrap:wrap;margin:3em 0 2em 0}.comments-pagination>*{margin-right:2em}.post--item{margin:1em 0}.post-body{margin:1em 0}@media screen{.post-body table{white-space:nowrap;overflow:auto;display:block}.post-body pre{overflow-x:auto}}.post-body pre,.post-body samp,.post-body code,.post-body blockquote{color:#839496;background:#002b36}.post-body blockquote{border-left:medium solid #586e75}.post-footer{border-top:thin solid #586e75;display:flex;flex-wrap:wrap;justify-content:space-between;font-size:0.8em}.post-author{font-style:normal}.comments-title{margin:0;font-size:1.1em}.comment{margin:2em 0}.comment-header{border-bottom:thin solid #586e75}.comment-author{font-style:normal;font-weight:bold}.comment-date{margin-top:1.25em;font-size:0.8em}</style>
+<!-- [highlight.js](https://highlightjs.org) -->
+<link rel='stylesheet preload' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/solarized-dark.min.css' as='style'/>
+<script async='async' src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js'/>
+<script>window.addEventListener("load", function(){hljs.initHighlighting();})</script>
+</b:if>
+<b:defaultmarkups>
+<b:defaultmarkup type='Common'>
+
+<b:includable id='svgIcon'>
+  <svg xmlns='http://www.w3.org/2000/svg' expr:class='data:class'>
+    <use expr:href='fragment("/responsive/sprite_v1_6.css.svg", data:iconId)'/>
+  </svg>
+</b:includable>
+
+</b:defaultmarkup>
+</b:defaultmarkups>
+</head>
+&lt;!--<body/>--&gt;
+<body>
+<header class='header' id='header'>
+  <h1 class='header-title'>
+    <a expr:href='data:blog.homepageUrl'><data:blog.title.escaped/></a>
+  </h1>
+</header>
+<b:section id='widgets' class='widgets'>
+<b:widget id='Blog1' locked='false' type='Blog' version='2' visible='true'>
+
+<b:widget-settings>
+<b:widget-setting name='authorLabel'/>
+<b:widget-setting name='commentLabel'/>
+<b:widget-setting name='timestampLabel'/>
+<b:widget-setting name='reactionsLabel'/>
+<b:widget-setting name='postLocationLabel'/>
+<b:widget-setting name='postLabelsLabel'/>
+<b:widget-setting name='showLocation'>false</b:widget-setting>
+<b:widget-setting name='showTimestamp'>true</b:widget-setting>
+<b:widget-setting name='showCommentLink'>true</b:widget-setting>
+<b:widget-setting name='showAuthor'>true</b:widget-setting>
+<b:widget-setting name='showLabels'>true</b:widget-setting>
+<b:widget-setting name='showReactions'>false</b:widget-setting>
+<b:widget-setting name='showShareButtons'>false</b:widget-setting>
+<b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+<b:widget-setting name='showInlineAds'>false</b:widget-setting>
+<b:widget-setting name='postsPerAd'/>
+</b:widget-settings>
+
+<b:includable id='main'>
+  <main class='mainContainer' id='mainContainer'>
+    <b:if cond='data:view.isPost'>
+      <article class='post--item' expr:id='"post-" + data:posts.first.id'>
+        <b:include name='post-header' data='data:posts.first'/>
+        <b:include name='post-body' data='data:posts.first'/>
+        <b:include name='post-footer' data='data:posts.first'/>
+      </article>
+      <b:include name='mainContainer-pagination'/>
+      <b:include cond='data:posts.first.allowComments' name='comments' data='data:posts.first'/>
+    <b:else/>
+      <b:loop var='post' values='data:posts'>
+        <article class='post--index' expr:id='"post-" + data:post.id'>
+          <b:include name='post-header' data='data:post'/>
+          <b:include name='post-snippet' data='data:post'/>
+        </article>
+      </b:loop>
+      <b:include name='mainContainer-pagination'/>
+    </b:if>
+  </main>
+</b:includable>
+
+<b:includable id='mainContainer-pagination'>
+  <nav class='mainContainer-pagination'>
+    <b:if cond='data:newerPageUrl'>
+      <div class='mainContainer-nextLink'>
+        <a expr:href='data:newerPageUrl' rel='next'><b:eval expr='data:view.isPost ? "‹ Newer Post" : "‹ Newer Posts"'/></a>
+      </div>
+    </b:if>
+    <div class='mainContainer-homeLink'>
+      <a expr:href='data:blog.homepageUrl'>Home</a>
+    </div>
+    <b:if cond='data:olderPageUrl'>
+      <div class='mainContainer-prevLink'>
+        <a expr:href='data:olderPageUrl' rel='prev'><b:eval expr='data:view.isPost ? "Older Post ›" : "Older Posts ›"'/></a>
+      </div>
+    </b:if>
+  </nav>
+</b:includable>
+
+<b:includable id='post-header' var='post'>
+  <header class='post-header' id='post-header'>
+    <h1 class='post-title'>
+      <a expr:href='data:post.url' rel='bookmark'><data:post.title.escaped/></a>
+    </h1>
+    <nav class='post-meta'>
+      <b:include name='post-date' data='data:post'/>
+      <b:include name='post-labels' data='data:post' cond='data:post.labels'/>
+    </nav>
+  </header>
+</b:includable>
+
+<b:includable id='post-date' var='post'>
+  <time class='post-date' expr:datetime='data:post.date.iso8601'>
+    <a expr:href='format(data:post.date, "/YYYY/")'><b:eval expr='format(data:post.date, "YYYY")'/></a>-<a expr:href='format(data:post.date, "/YYYY/MM/")'><b:eval expr='format(data:post.date, "MM")'/></a>-<b:eval expr='format(data:post.date, "dd")'/>
+  </time>
+</b:includable>
+
+<b:includable id='post-labels' var='post'>
+  <span class='post-labels'>
+    Label: <b:loop var='label' values='data:post.labels' index='i'>
+      <a expr:href='data:label.url'><data:label.name.escaped/></a>
+      <b:eval expr='data:i + 1 lt data:post.labels.size ? ", " : ""'/>
+    </b:loop>
+  </span>
+</b:includable>
+
+<b:includable id='post-body' var='post'>
+  <div class='post-body'><data:post.body/></div>
+</b:includable>
+
+<b:includable id='post-snippet' var='post'>
+  <p class='post-snippet'>
+    <b:eval expr='snippet(data:post.body, {length : 50, linebreaks : false})'/>
+    <a class='post-jumpLink' expr:href='data:post.url' rel='bookmark'>Read More »</a>
+  </p>
+</b:includable>
+
+<b:includable id='post-footer' var='post'>
+  <footer class='post-footer' id='post-footer'>
+    <b:include name='post-author' data='post'/>
+  </footer>
+</b:includable>
+
+<b:includable id='post-author' var='post'>
+  <address class='post-author'>
+    Author: <a expr:href='data:post.author.profileUrl' rel='author'>
+      <b:include name='svgIcon' data='{iconId : ("ic_post_blogger_black_24dp"),class : ("post-authorIcon")}'/><data:post.author.name/>
+    </a>
+  </address>
+</b:includable>
+
+<b:includable id='comments' var='post'>
+  <aside class='comments' id='comments'>
+    <b:include name='comments-header' data='data:post'/>
+    <b:loop var='comment' values='data:post.comments'>
+      <b:include name='comment' data='data:comment'/>
+    </b:loop>
+    <b:include cond='data:post.commentPagingRequired' name='comments-pagination' data='data:post'/>
+  </aside>
+</b:includable>
+
+<b:includable id='comments-header' var='post'>
+  <header class='comments-header'>
+    <h3 class='comments-title'>
+      <b:eval expr='"Comments: " + (data:post.commentRangeText ? data:post.commentRangeText : data:post.numberOfComments)'/>
+    </h3>
+    <b:include name='comments-formLink' data='data:post'/>
+  </header>
+</b:includable>
+
+<b:includable id='comments-formLink' var='post'>
+  <a class='comments-formLink' expr:href='data:post.embedCommentForm ? data:post.commentFormIframeSrc : data:post.commentsUrl'>
+    <b:include name='svgIcon' data='{iconId : ("ic_mode_comment_black_24dp"),class : ("comments-commentIcon")}'/>post a comment
+  </a>
+</b:includable>
+
+<b:includable id='comments-pagination' var='post'>
+  <nav class='comments-pagination'>
+    <b:if cond='data:post.hasOlderLinks'>
+      <div class='comments-prevLink'>
+        <a expr:href='data:post.oldestLinkUrl'>« First</a>
+      </div>
+      <div class='comments-prevLink'>
+        <a expr:href='data:post.olderLinkUrl'>‹ Prev</a>
+      </div>
+    </b:if>
+    <b:if cond='data:post.hasNewerLinks'>
+      <div class='comments-nextLink'>
+        <a expr:href='data:post.newerLinkUrl'>Next ›</a>
+      </div>
+      <div class='comments-nextLink'>
+        <a expr:href='data:post.newestLinkUrl'>Last »</a>
+      </div>
+    </b:if>
+  </nav>
+</b:includable>
+
+<b:includable id='comment' var='comment'>
+  <article class='comment' expr:id='"c" + data:comment.id'>
+    <header class='comment-header'>
+      <b:include name='comment-author' data='data:comment'/>
+      <time class='comment-date'><data:comment.timestamp/></time>
+    </header>
+    <p class='comment-body'><data:comment.body/></p>
+  </article>
+</b:includable>
+
+<b:includable id='comment-author' var='comment'>
+  <b:if cond='data:comment.authorUrl'>
+    <address class='comment-author'>
+      <a expr:href='data:comment.authorUrl' rel='author'>
+        <b:include cond='data:comment.authorUserType eq "blogger"' name='svgIcon' data='{iconId : ("ic_post_blogger_black_24dp"),class : ("comment-authorIcon")}'/>
+        <data:comment.author.escaped/>
+      </a>
+    </address>
+  <b:else/>
+    <div class='comment-author'><data:comment.author.escaped/></div>
+  </b:if>
+</b:includable>
+
+</b:widget>
+<b:widget id='BlogArchive1' type='BlogArchive' locked='false' visible='true' version='2'>
+
+<b:widget-settings>
+<b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
+<b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+<b:widget-setting name='showWeekEnd'>false</b:widget-setting>
+<b:widget-setting name='monthPattern'>MM</b:widget-setting>
+<b:widget-setting name='dayPattern'>dd</b:widget-setting>
+<b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+<b:widget-setting name='chronological'>false</b:widget-setting>
+<b:widget-setting name='showPosts'>false</b:widget-setting>
+<b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+</b:widget-settings>
+
+<b:includable id='main'>
+  <aside class='archives'>
+    <h3 class='archives-title'>Archives</h3>
+    <b:include name='archives' data='data'/>
+  </aside>
+</b:includable>
+
+<b:includable id='archives' var='archives'>
+  <b:loop var='archive' values='data:archives'>
+    <b:if cond='data:archive.data'>
+      <details class='archives-yearly'>
+        <b:attr cond='data:archive.expclass eq "expanded"' name='open' value='open'/>
+        <summary>
+          <a expr:href='data:archive.url'><data:archive.name.escaped/></a>(<data:archive.post-count/>)/
+        </summary>
+        <b:include name='archives' data='data:archive.data'/>
+      </details>
+    <b:else/>
+      <nav class='archives-monthly'>
+        <a expr:href='data:archive.url'><data:archive.name.escaped/></a>(<data:archive.post-count/>)
+      </nav>
+    </b:if>
+  </b:loop>
+</b:includable>
+
+</b:widget>
+<b:widget id='Label1' type='Label' locked='false' visible='true' version='2'>
+
+<b:widget-settings>
+<b:widget-setting name='sorting'>FREQUENCY</b:widget-setting>
+<b:widget-setting name='display'>LIST</b:widget-setting>
+<b:widget-setting name='selectedLabelsList'/>
+<b:widget-setting name='showType'>ALL</b:widget-setting>
+<b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+</b:widget-settings>
+
+<b:includable id='main'>
+  <aside class='labels'>
+    <h3 class='labels-title'>Labels</h3>
+    <nav class='labels-list'>
+      <b:loop var='label' values='data:labels' index='i'>
+        <a expr:href='data:label.url'><data:label.name.escaped/></a>(<data:label.count/>)<b:eval expr='data:i + 1 lt data:labels.size ? ", " : ""'/>
+      </b:loop>
+    </nav>
+  </aside>
+</b:includable>
+
+</b:widget>
+</b:section>
+<footer class='footer' id='footer'>
+  <div class='footer-bloggerLink'>
+    <a expr:href='data:blog.bloggerUrl'><b:include name='svgIcon' data='{iconId : ("ic_post_blogger_black_24dp"),class : ("footer-bloggerIcon")}'/>Powered by Blogger</a>
+  </div>
+</footer>
+</body>
+</html>

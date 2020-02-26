@@ -1,0 +1,154 @@
+@import "./definition.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    line-height: 1.6;
+    font-family: sans-serif;
+    color: $color-light;
+    background-color: $background-light;
+}
+
+a {
+    color: $linkColor;
+    text-decoration: underline;
+}
+
+a:hover, a:focus{
+    outline: thin dashed;
+}
+
+a:active {
+    outline: medium solid;
+}
+
+a:visited {
+    color: $visitedLinkColor;
+}
+
+mark {
+    color: $background-light;
+    background-color: $color-light;
+}
+
+hr {
+    border-color: $borderColor;
+}
+
+pre, code, samp, kbd {
+    font-size: 1em;
+    font-family: monospace, monospace;
+}
+
+code, samp {
+    white-space: pre-wrap;
+}
+
+pre > code, pre > samp {
+    white-space: pre;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.header {
+    @extend %side;
+
+    &-title {
+        margin: 0;
+        font-size: 1.3em;
+    }
+}
+
+.footer {
+    @extend %side;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > * {
+        margin: 1em 0;
+    }
+
+    &-bloggerIcon {
+        @extend %svgIcon;
+    }
+}
+
+.widgets {
+    flex-grow: 1;
+
+    > * {
+        margin: 0 auto;
+        max-width: 95%;
+    }
+}
+
+.mainContainer {
+    &-pagination {
+        @extend %pagination;
+    }
+}
+
+.post {
+    &--index {
+        margin: 1em 0;
+    }
+
+    &-header {
+        border-bottom: thin solid $borderColor;
+    }
+
+    &-title {
+        margin: 0;
+        font-size: 1.3em;
+    }
+
+    &-meta {
+        margin-top: 0.625em;
+        font-size: 0.8em;
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            display: block;
+        }
+    }
+
+    &-date {
+        margin-right: 2em;
+    }
+}
+
+.archives {
+    margin: 2em 0;
+
+    &-title {
+        margin: 0;
+        font-size: 1.1em;
+        border-bottom: thin solid $borderColor;
+    }
+
+    &-monthly {
+        padding-left: 2.5em;
+    }
+}
+
+.labels {
+    margin: 2em 0;
+
+    &-title {
+        margin: 0;
+        font-size: 1.1em;
+        border-bottom: thin solid $borderColor;
+    }
+}

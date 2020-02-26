@@ -1,0 +1,85 @@
+@import "./definition.scss";
+
+.post {
+    &--item {
+        margin: 1em 0;
+    }
+
+    &-body {
+        margin: 1em 0;
+
+        @media screen {
+            table {
+                white-space: nowrap;
+                overflow: auto;
+                display: block;
+            }
+
+            pre {
+                overflow-x: auto;
+            }
+       }
+
+       pre, samp, code, blockquote {
+           color: $color-dark;
+           background: $background-dark;
+       }
+
+       blockquote {
+           border-left: medium solid $borderColor;
+       }
+    }
+
+    &-footer {
+        border-top: thin solid $borderColor;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-size: 0.8em;
+    }
+
+    &-author {
+        font-style: normal;
+    }
+
+    &-authorIcon {
+        @extend %svgIcon;
+    }
+}
+
+.comments {
+    &-title {
+        margin: 0;
+        font-size: 1.1em;
+    }
+
+    &-commentIcon {
+        @extend %svgIcon;
+    }
+
+    &-pagination {
+        @extend %pagination;
+    }
+}
+
+.comment {
+    margin: 2em 0;
+
+    &-header {
+        border-bottom: thin solid $borderColor;
+    }
+
+    &-author {
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    &-authorIcon {
+        @extend %svgIcon;
+    }
+
+    &-date {
+        margin-top: 1.25em;
+        font-size: 0.8em;
+    }
+}

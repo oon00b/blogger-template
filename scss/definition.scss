@@ -1,0 +1,41 @@
+/* original: [solarized](https://ethanschoonover.com/solarized) */
+
+$background-dark: #002b36;
+$color-dark: #839496;
+
+$background-light: #073642;
+$color-light: #93a1a1;
+
+$borderColor: #586e75;
+$linkColor: #b58900;
+$visitedLinkColor: #cb4b16;
+
+
+%svgIcon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: $color-dark;
+    background-color: inherit;
+}
+
+%side {
+    flex-shrink: 0;
+    color: $color-dark;
+    background-color: $background-dark;
+
+    a:link, a:visited {
+        color: $color-dark;
+        background-color: $background-dark;
+    }
+}
+
+%pagination {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3em 0 2em 0;
+
+    > * {
+        margin-right: 2em;
+    }
+}
