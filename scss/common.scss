@@ -8,15 +8,6 @@ $color-light: #93a1a1;
 $linkColor: #b58900;
 $visitedLinkColor: #cb4b16;
 
-%pagination {
-    display: flex;
-    flex-wrap: wrap;
-
-    > * {
-        margin-right: 2em;
-    }
-}
-
 * {
     box-sizing: border-box;
 }
@@ -46,11 +37,6 @@ a:active {
 
 a:visited {
     color: $visitedLinkColor;
-}
-
-mark {
-    color: $background-light;
-    background-color: $color-light;
 }
 
 pre, code, samp, kbd {
@@ -98,14 +84,20 @@ table {
     }
 }
 
-.Blog {
+.Blog, .blogMain {
     > * {
         margin: 2em 0;
     }
 }
 
 .pagination {
-    @extend %pagination;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-pageLink--center {
+        margin: 0 auto;
+        padding: 0 0.5em;
+    }
 }
 
 .post {

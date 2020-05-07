@@ -36,7 +36,13 @@
     }
 
     &-pagination {
-        @extend %pagination;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &-pageLink--center {
+        margin: 0 auto;
+        padding: 0 0.5em;
     }
 }
 
