@@ -64,6 +64,10 @@ table {
     border-collapse: collapse;
 }
 
+th, td {
+    border: thin solid;
+}
+
 .header {
     &-title {
         margin: 0;
