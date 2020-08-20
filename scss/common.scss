@@ -1,12 +1,10 @@
 /* original: solarized (https://ethanschoonover.com/solarized) */
 $background-dark: #002b36;
-$color-dark: #839496;
 
 $background-light: #073642;
 $color-light: #93a1a1;
 
 $linkColor: #b58900;
-$visitedLinkColor: #cb4b16;
 
 * {
     box-sizing: border-box;
@@ -35,29 +33,19 @@ a:active {
     outline: medium solid;
 }
 
-a:visited {
-    color: $visitedLinkColor;
-}
-
 pre, code, samp, kbd {
     font-size: 1em;
     font-family: monospace, monospace;
 }
 
-pre, samp, code, blockquote {
-   background: $background-dark;
-}
-
-code, samp {
-    white-space: pre-wrap;
-}
-
-pre > code, pre > samp {
-    white-space: pre;
+pre, samp, code {
+    background: $background-dark;
 }
 
 blockquote {
-   border-left: medium solid;
+    border: thin solid;
+    border-radius: 0.5em;
+    padding: 0.5em;
 }
 
 table {
@@ -72,6 +60,7 @@ th, td {
     &-title {
         margin: 0;
         font-size: 1em;
+        font-weight: normal;
     }
 }
 

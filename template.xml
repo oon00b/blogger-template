@@ -9,10 +9,9 @@
 <title><b:eval expr='data:view.title.escaped + (data:view.isPost ? " - " + data:blog.title.escaped : "")'/></title>
 <link expr:href='data:blog.url.canonical' rel='canonical'/>
 <link expr:href='data:blog.blogspotFaviconUrl' rel='icon preload' as='image'/>
-<b:if cond='not data:view.isPost'>
-<b:skin><![CDATA[*{box-sizing:border-box}body{overflow-wrap:break-word;word-wrap:break-word;margin:0;line-height:1.6;font-family:sans-serif;color:#93a1a1;background-color:#073642}a{color:#b58900;text-decoration:underline}a:hover,a:focus{outline:thin dashed}a:active{outline:medium solid}a:visited{color:#cb4b16}pre,code,samp,kbd{font-size:1em;font-family:monospace, monospace}pre,samp,code,blockquote{background:#002b36}code,samp{white-space:pre-wrap}pre>code,pre>samp{white-space:pre}blockquote{border-left:medium solid}table{border-collapse:collapse}th,td{border:thin solid}.header-title{margin:0;font-size:1em}.footer{display:flex;flex-direction:column;align-items:center}.widgets>*{margin:2em auto;max-width:95%}.Blog>*,.blogMain>*{margin:2em 0}.pagination{display:flex;flex-wrap:wrap}.pagination-pageLink--center{margin:0 auto;padding:0 0.5em}.post-header{border-bottom:thin solid}.post-title{margin:0;font-size:1.3em}.post-meta{font-size:0.8em;display:flex;flex-wrap:wrap}.post-meta>*{display:block}.post-date{margin-right:2em}.archives-title{margin:0;font-size:1em;border-bottom:thin solid}.archives-monthly{padding-left:2.5em}.labels-title{margin:0;font-size:1em;border-bottom:thin solid}]]></b:skin>
-<b:else/>
-<style>*{box-sizing:border-box}body{overflow-wrap:break-word;word-wrap:break-word;margin:0;line-height:1.6;font-family:sans-serif;color:#93a1a1;background-color:#073642}a{color:#b58900;text-decoration:underline}a:hover,a:focus{outline:thin dashed}a:active{outline:medium solid}a:visited{color:#cb4b16}pre,code,samp,kbd{font-size:1em;font-family:monospace, monospace}pre,samp,code,blockquote{background:#002b36}code,samp{white-space:pre-wrap}pre>code,pre>samp{white-space:pre}blockquote{border-left:medium solid}table{border-collapse:collapse}th,td{border:thin solid}.header-title{margin:0;font-size:1em}.footer{display:flex;flex-direction:column;align-items:center}.widgets>*{margin:2em auto;max-width:95%}.Blog>*,.blogMain>*{margin:2em 0}.pagination{display:flex;flex-wrap:wrap}.pagination-pageLink--center{margin:0 auto;padding:0 0.5em}.post-header{border-bottom:thin solid}.post-title{margin:0;font-size:1.3em}.post-meta{font-size:0.8em;display:flex;flex-wrap:wrap}.post-meta>*{display:block}.post-date{margin-right:2em}.archives-title{margin:0;font-size:1em;border-bottom:thin solid}.archives-monthly{padding-left:2.5em}.labels-title{margin:0;font-size:1em;border-bottom:thin solid}.post-body{margin:1em 0}@media screen{.post-body table{white-space:nowrap;overflow:auto;display:block}.post-body pre{overflow-x:auto}}.post-footer{border-top:thin solid;display:flex;flex-wrap:wrap;justify-content:space-between;font-size:0.8em}.post-author{font-style:normal}.comments>*{margin:2em 0}.comments-pagination{display:flex;flex-wrap:wrap}.comments-pageLink--center{margin:0 auto;padding:0 0.5em}.comment-header{border-bottom:thin solid}.comment-author{font-style:normal;font-weight:bold}.comment-date{font-size:0.8em}</style>
+<b:skin><![CDATA[*{box-sizing:border-box}body{overflow-wrap:break-word;word-wrap:break-word;margin:0;line-height:1.6;font-family:sans-serif;color:#93a1a1;background-color:#073642}a{color:#b58900;text-decoration:underline}a:hover,a:focus{outline:thin dashed}a:active{outline:medium solid}pre,code,samp,kbd{font-size:1em;font-family:monospace, monospace}pre,samp,code{background:#002b36}blockquote{border:thin solid;border-radius:0.5em;padding:0.5em}table{border-collapse:collapse}th,td{border:thin solid}.header-title{margin:0;font-size:1em;font-weight:normal}.footer{display:flex;flex-direction:column;align-items:center}.widgets>*{margin:2em auto;max-width:95%}.Blog>*,.blogMain>*{margin:2em 0}.pagination{display:flex;flex-wrap:wrap}.pagination-pageLink--center{margin:0 auto;padding:0 0.5em}.post-header{border-bottom:thin solid}.post-title{margin:0;font-size:1.3em}.post-meta{font-size:0.8em;display:flex;flex-wrap:wrap}.post-meta>*{display:block}.post-date{margin-right:2em}.archives-title{margin:0;font-size:1em;border-bottom:thin solid}.archives-monthly{padding-left:2.5em}.labels-title{margin:0;font-size:1em;border-bottom:thin solid}]]></b:skin>
+<b:if cond='data:view.isPost'>
+<style>.post-body{margin:1em 0}@media screen{.post-body table{white-space:nowrap;overflow:auto;display:block}.post-body pre{overflow-x:auto}}.post-footer{border-top:thin solid;display:flex;flex-wrap:wrap;justify-content:space-between;font-size:0.8em}.post-author{font-style:normal}.comments>*{margin:2em 0}.comments-pagination{display:flex;flex-wrap:wrap}.comments-pageLink--center{margin:0 auto;padding:0 0.5em}.comment-header{border-bottom:thin solid}.comment-author{font-style:normal;font-weight:bold}.comment-date{font-size:0.8em}</style>
 <!-- highlight.js (https://highlightjs.org) -->
 <link rel='stylesheet preload' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/solarized-dark.min.css' as='style'/>
 <script async='async' src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js'/>
@@ -22,9 +21,9 @@
 &lt;!--<body/>--&gt;
 <body>
 <header class='header' id='header'>
-  <h1 class='header-title'>
+  <b:tag expr:name='data:view.isPost ? "nav" : "h1"' class='header-title'>
     <a expr:href='data:blog.homepageUrl'><data:blog.title.escaped/></a>
-  </h1>
+  </b:tag>
 </header>
 <b:section id='widgets' class='widgets'>
 <b:widget id='Blog1' locked='false' type='Blog' version='2' visible='true'>
@@ -92,9 +91,9 @@
 
 <b:includable id='post-header' var='post'>
   <header class='post-header'>
-    <h1 class='post-title'>
+    <b:tag expr:name='data:view.isPost ? "h1" : "h2"' class='post-title'>
       <a expr:href='data:post.url' rel='bookmark'><data:post.title.escaped/></a>
-    </h1>
+    </b:tag>
     <nav class='post-meta'>
       <b:include name='post-date' data='data:post'/>
       <b:include name='post-labels' data='data:post' cond='data:post.labels'/>
@@ -153,12 +152,8 @@
 <b:includable id='comments-header' var='post'>
   <header class='comments-header'>
     <b:if cond="data:post.numberOfComments gt 0"><data:post.numberOfComments/> Comments:</b:if>
-    <b:include name='comments-formLink' data='data:post'/>
+    <a class='comments-formLink' expr:href='data:post.embedCommentForm ? data:post.commentFormIframeSrc : data:post.commentsUrl'>post a comment</a>
   </header>
-</b:includable>
-
-<b:includable id='comments-formLink' var='post'>
-  <a class='comments-formLink' expr:href='data:post.embedCommentForm ? data:post.commentFormIframeSrc : data:post.commentsUrl'>post a comment</a>
 </b:includable>
 
 <b:includable id='comments-pagination' var='post'>
@@ -219,7 +214,7 @@
 
 <b:includable id='main'>
   <aside class='archives'>
-    <h3 class='archives-title'>Archives</h3>
+    <h2 class='archives-title'>Archives</h2>
     <b:include name='hierarchy' data='data'/>
   </aside>
 </b:includable>
@@ -255,7 +250,7 @@
 
 <b:includable id='main'>
   <aside class='labels'>
-    <h3 class='labels-title'>Labels</h3>
+    <h2 class='labels-title'>Labels</h2>
     <div class='labels-list'>
       <b:loop var='label' values='data:labels' index='i'>
         <a expr:href='data:label.url'><data:label.name.escaped/></a>(<data:label.count/>)<b:eval expr='data:i + 1 lt data:labels.size ? ", " : ""'/>
