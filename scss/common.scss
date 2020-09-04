@@ -1,10 +1,9 @@
-/* original: solarized (https://ethanschoonover.com/solarized) */
-$background-dark: #002b36;
+$background-light: #eee8e3;
+$color-light: #302040;
 
-$background-light: #073642;
-$color-light: #93a1a1;
+$background-dark: #d8dadd;
 
-$linkColor: #b58900;
+$linkColor: #004090;
 
 * {
     box-sizing: border-box;
@@ -36,9 +35,6 @@ a:active {
 pre, code, samp, kbd {
     font-size: 1em;
     font-family: monospace, monospace;
-}
-
-pre, samp, code {
     background: $background-dark;
 }
 
