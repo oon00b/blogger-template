@@ -3,12 +3,6 @@
         margin: 1em 0;
 
         @media screen {
-            table {
-                white-space: nowrap;
-                overflow: auto;
-                display: block;
-            }
-
             pre {
                 overflow-x: auto;
             }
