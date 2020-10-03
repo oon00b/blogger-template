@@ -1,9 +1,9 @@
-$background-light: #ece8cc;
-$color-light: #1c2018;
+$default-background: #ece8cc;
+$default-color: #1c2018;
 
-$background-dark: #dcdcdc;
+$code-background: #dcdcdc;
 
-$linkColor: #004870;
+$link-color: #004870;
 
 * {
     box-sizing: border-box;
@@ -15,12 +15,12 @@ body {
     margin: 0;
     line-height: 1.6;
     font-family: sans-serif;
-    color: $color-light;
-    background-color: $background-light;
+    color: $default-color;
+    background-color: $default-background;
 }
 
 a {
-    color: $linkColor;
+    color: $link-color;
     text-decoration: underline;
 }
 
@@ -35,7 +35,7 @@ a:active {
 pre, code, samp, kbd {
     font-size: 1em;
     font-family: monospace, monospace;
-    background-color: $background-dark;
+    background-color: $code-background;
 }
 
 blockquote {
@@ -52,40 +52,22 @@ th, td {
     border: thin solid;
 }
 
-.header {
-    &-title {
-        margin: 0;
-        font-size: 1em;
-        font-weight: normal;
-    }
-}
-
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.widgets {
+.main {
     > * {
         margin: 2em auto;
         max-width: 95%;
     }
 }
 
-.Blog, .blogMain {
-    > * {
-        margin: 2em 0;
-    }
+.Blog > * {
+    margin: 2em 0;
 }
 
 .pagination {
-    display: flex;
-    flex-wrap: wrap;
+    text-align: center;
 
-    &-pageLink--center {
-        margin: 0 auto;
-        padding: 0 0.5em;
+    &-pageLink:not(:last-child)::after {
+        content: " | ";
     }
 }
 
@@ -100,7 +82,6 @@ th, td {
     }
 
     &-meta {
-        font-size: 0.8em;
         display: flex;
         flex-wrap: wrap;
 
@@ -114,11 +95,30 @@ th, td {
     }
 }
 
+%side-widget {
+    margin-top: 2em;
+    flex-basis: 45%;
+}
+
+%side-title {
+    margin: 0;
+    font-size: 1em;
+    border-bottom: thin solid;
+}
+
+.side {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > * {
+        @extend %side-widget;
+    }
+}
+
 .archives {
     &-title {
-        margin: 0;
-        font-size: 1em;
-        border-bottom: thin solid;
+        @extend %side-title;
     }
 
     &-monthly {
@@ -128,8 +128,6 @@ th, td {
 
 .labels {
     &-title {
-        margin: 0;
-        font-size: 1em;
-        border-bottom: thin solid;
+        @extend %side-title;
     }
 }

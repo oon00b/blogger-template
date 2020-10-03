@@ -11,13 +11,10 @@
 
     &-footer {
         border-top: thin solid;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        font-size: 0.8em;
     }
 
     &-author {
+        display: inline;
         font-style: normal;
     }
 }
@@ -28,13 +25,11 @@
     }
 
     &-pagination {
-        display: flex;
-        flex-wrap: wrap;
+        text-align: center;
     }
 
-    &-pageLink--center {
-        margin: 0 auto;
-        padding: 0 0.5em;
+    &-pageLink:not(:last-child)::after {
+        content: " | ";
     }
 }
 
@@ -46,9 +41,5 @@
     &-author {
         font-style: normal;
         font-weight: bold;
-    }
-
-    &-date {
-        font-size: 0.8em;
     }
 }
