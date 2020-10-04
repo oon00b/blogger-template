@@ -116,8 +116,8 @@
 </b:includable>
 
 <b:includable id='post-author' var='post'>
-  <address class='post-author'>
-    Author: <a expr:href='data:post.author.profileUrl' rel='author'><data:post.author.name/></a>
+  Author: <address class='post-author'>
+    <a expr:href='data:post.author.profileUrl' rel='author'><data:post.author.name/></a>
   </address>
 </b:includable>
 
