@@ -27,10 +27,6 @@
     &-pagination {
         text-align: center;
     }
-
-    &-pageLink:not(:last-child)::after {
-        content: " | ";
-    }
 }
 
 .comment {

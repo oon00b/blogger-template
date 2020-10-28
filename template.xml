@@ -8,20 +8,20 @@
 <title><b:eval expr='data:view.title.escaped + (data:view.isPost ? " - " + data:blog.title.escaped : "")'/></title>
 <link expr:href='data:blog.url.canonical' rel='canonical'/>
 <link expr:href='data:blog.blogspotFaviconUrl' rel='icon preload' as='image'/>
-<b:skin><![CDATA[*{box-sizing:border-box}body{overflow-wrap:break-word;word-wrap:break-word;margin:0;line-height:1.6;font-family:sans-serif;color:#1c2018;background-color:#ece8cc}a{color:#004870;text-decoration:underline}a:hover,a:focus{outline:thin dashed}a:active{outline:medium solid}pre,code,samp,kbd{font-size:1em;font-family:monospace, monospace;background-color:#dcdcdc}blockquote{border:thin solid;border-radius:0.5em;padding:0.5em}table{border-collapse:collapse}th,td{border:thin solid}.main>*{margin:2em auto;max-width:95%}.Blog>*{margin:2em 0}.pagination{text-align:center}.pagination-pageLink:not(:last-child)::after{content:" | "}.post-header{border-bottom:thin solid}.post-title{margin:0;font-size:1.3em}.post-meta{display:flex;flex-wrap:wrap}.post-meta>*{display:block}.post-date{margin-right:2em}.side>*{margin:2em auto 0 auto;flex-basis:45%}.labels-title,.archives-title{margin:0;font-size:1em;border-bottom:thin solid}.side{display:flex;flex-wrap:wrap;justify-content:space-between}.archives-monthly{padding-left:2.5em}]]></b:skin>
+<b:skin><![CDATA[*{box-sizing:border-box}body{overflow-wrap:break-word;word-break:break-all;margin:0;line-height:1.6;font-family:sans-serif;color:#1c2018;background-color:#ece8cc}a{color:#004870;text-decoration:underline}a:hover,a:focus{outline:thin dashed}a:active{outline:medium solid}pre,code,samp,kbd{font-size:1em;font-family:monospace, monospace;background-color:#dcdcdc}blockquote{border:thin solid;border-radius:0.5em;padding:0.5em}table{border-collapse:collapse}th,td{border:thin solid}.main>*{margin:2em auto;max-width:95%}.Blog>*{margin:2em 0}.pagination{text-align:center}.post-header{border-bottom:thin solid}.post-title{margin:0;font-size:1.3em}.post-date{display:block}.side>*{margin:2em 0;flex:1 1 15em}.labels-title,.archives-title{margin:0;font-size:1em}.side{display:flex;flex-wrap:wrap;margin:auto;max-width:95%}.archives-monthly{padding-left:2.5em}]]></b:skin>
 <b:if cond='data:view.isPost'>
-<style>.post-body{margin:1em 0}@media screen{.post-body pre{overflow-x:auto}}.post-footer{border-top:thin solid}.post-author{display:inline;font-style:normal}.comments>*{margin:2em 0}.comments-pagination{text-align:center}.comments-pageLink:not(:last-child)::after{content:" | "}.comment-header{border-bottom:thin solid}.comment-author{font-style:normal;font-weight:bold}</style>
+<style>.post-body{margin:1em 0}@media screen{.post-body pre{overflow-x:auto}}.post-footer{border-top:thin solid}.post-author{display:inline;font-style:normal}.comments>*{margin:2em 0}.comments-pagination{text-align:center}.comment-header{border-bottom:thin solid}.comment-author{font-style:normal;font-weight:bold}</style>
 <!-- highlight.js (https://highlightjs.org) -->
-<link rel='stylesheet preload' as='style' href='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/solarized-dark.min.css'/>
-<script async='async' src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js'/>
+<link rel='stylesheet preload' as='style' href='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.1/build/styles/solarized-dark.min.css'/>
+<script async='async' src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.1/build/highlight.min.js'/>
 <script>window.addEventListener("load", function(){hljs.configure({languages: []}); hljs.initHighlighting();})</script>
 </b:if>
 </head>
 &lt;!--<body/>--&gt;
 <body>
-<header class='header'>
+<nav class='navigation'>
   <a expr:href='data:blog.homepageUrl'><data:blog.title.escaped/></a>
-</header>
+</nav>
 <b:section id='main' class='main'>
 <b:widget id='Blog1' locked='false' type='Blog' version='2' visible='true'>
 
@@ -46,7 +46,7 @@
 
 <b:includable id='main'>
   <b:if cond='data:view.isPost'>
-    <article class='post--item' expr:id='"post-" + data:posts.first.id'>
+    <article class='post--item'>
       <b:include name='post-header' data='data:posts.first'/>
       <b:include name='post-body' data='data:posts.first'/>
       <b:include name='post-footer' data='data:posts.first'/>
@@ -55,8 +55,9 @@
     <b:include cond='data:posts.first.allowComments' name='comments' data='data:posts.first'/>
   <b:else/>
     <b:loop var='post' values='data:posts'>
-      <article class='post--index' expr:id='"post-" + data:post.id'>
-        <b:include name='post-header' data='data:post'/>
+      <article class='post--index'>
+        <b:include name='post-title' data='data:post'/>
+        <b:include name='post-nav' data='data:post'/>
       </article>
     </b:loop>
   <b:include cond='data:newerPageUrl or data:olderPageUrl' name='pagination'/>
@@ -65,29 +66,29 @@
 
 <b:includable id='pagination'>
   <nav class='pagination'>
-    <b:if cond='data:newerPageUrl'>
-      <span class='pagination-pageLink'>
-        <a expr:href='data:newerPageUrl'>‹ Next</a>
-      </span>
-    </b:if>
-    <b:if cond='data:olderPageUrl'>
-      <span class='pagination-pageLink'>
-        <a expr:href='data:olderPageUrl'>Prev ›</a>
-      </span>
-    </b:if>
+    <b:if cond='data:newerPageUrl'>[<a expr:href='data:newerPageUrl'>‹ Next</a>]</b:if>
+    <b:if cond='data:olderPageUrl'>[<a expr:href='data:olderPageUrl'>Prev ›</a>]</b:if>
   </nav>
 </b:includable>
 
 <b:includable id='post-header' var='post'>
   <header class='post-header'>
-    <b:tag expr:name='data:view.isPost ? "h1" : "h2"' class='post-title'>
-      <a expr:href='data:post.url'><data:post.title.escaped/></a>
-    </b:tag>
-    <nav class='post-meta'>
-      <b:include name='post-date' data='data:post'/>
-      <b:include name='post-labels' data='data:post' cond='data:post.labels'/>
-    </nav>
+    <b:include name='post-title' data='data:post'/>
+    <b:include name='post-nav' data='data:post'/>
   </header>
+</b:includable>
+
+<b:includable id='post-title' var='post'>
+  <b:tag expr:name='data:view.isPost ? "h1" : "h2"' class='post-title'>
+    <a expr:href='data:post.url'><data:post.title.escaped/></a>
+  </b:tag>
+</b:includable>
+
+<b:includable id='post-nav' var='post'>
+  <nav class='post-meta'>
+    <b:include name='post-date' data='data:post'/>
+    <b:include name='post-labels' data='data:post' cond='data:post.labels'/>
+  </nav>
 </b:includable>
 
 <b:includable id='post-date' var='post'>
@@ -97,12 +98,11 @@
 </b:includable>
 
 <b:includable id='post-labels' var='post'>
-  <span class='post-labels'>
+  <div class='post-labels'>
     Labels: <b:loop var='label' values='data:post.labels' index='i'>
-      <a expr:href='data:label.url'><data:label.name.escaped/></a>
-      <b:eval expr='data:i + 1 lt data:post.labels.size ? ", " : ""'/>
+      [<a expr:href='data:label.url'><data:label.name.escaped/></a>]
     </b:loop>
-  </span>
+  </div>
 </b:includable>
 
 <b:includable id='post-body' var='post'>
@@ -122,7 +122,7 @@
 </b:includable>
 
 <b:includable id='comments' var='post'>
-  <aside class='comments' id='comments'>
+  <aside class='comments'>
     <b:include name='comments-header' data='data:post'/>
     <b:loop var='comment' values='data:post.comments'>
       <b:include name='comment' data='data:comment'/>
@@ -140,26 +140,18 @@
 <b:includable id='comments-pagination' var='post'>
   <nav class='comments-pagination'>
     <b:if cond='data:post.hasOlderLinks'>
-      <span class='comments-pageLink'>
-        <a expr:href='data:post.oldestLinkUrl'>« First</a>
-      </span>
-      <span class='comments-pageLink'>
-        <a expr:href='data:post.olderLinkUrl'>‹ Prev</a>
-      </span>
+      [<a expr:href='data:post.oldestLinkUrl'>« First</a>]
+      [<a expr:href='data:post.olderLinkUrl'>‹ Prev</a>]
     </b:if>
     <b:if cond='data:post.hasNewerLinks'>
-      <span class='comments-pageLink'>
-        <a expr:href='data:post.newerLinkUrl'>Next ›</a>
-      </span>
-      <span class='comments-pageLink'>
-        <a expr:href='data:post.newestLinkUrl'>Last »</a>
-      </span>
+      [<a expr:href='data:post.newerLinkUrl'>Next ›</a>]
+      [<a expr:href='data:post.newestLinkUrl'>Last »</a>]
     </b:if>
   </nav>
 </b:includable>
 
 <b:includable id='comment' var='comment'>
-  <article class='comment' expr:id='"c" + data:comment.id'>
+  <article class='comment'>
     <header class='comment-header'>
       <b:include name='comment-author' data='data:comment'/>
       <time class='comment-date'><data:comment.timestamp/></time>
