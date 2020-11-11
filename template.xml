@@ -8,20 +8,21 @@
 <title><b:eval expr='data:view.title.escaped + (data:view.isPost ? " - " + data:blog.title.escaped : "")'/></title>
 <link expr:href='data:blog.url.canonical' rel='canonical'/>
 <link expr:href='data:blog.blogspotFaviconUrl' rel='icon preload' as='image'/>
-<b:skin><![CDATA[*{box-sizing:border-box}body{overflow-wrap:break-word;word-break:break-all;margin:0;line-height:1.6;font-family:sans-serif;color:#1c2018;background-color:#ece8cc}a{color:#004870;text-decoration:underline}a:hover,a:focus{outline:thin dashed}a:active{outline:medium solid}pre,code,samp,kbd{font-size:1em;font-family:monospace, monospace;background-color:#dcdcdc}blockquote{border:thin solid;border-radius:0.5em;padding:0.5em}table{border-collapse:collapse}th,td{border:thin solid}.main>*{margin:2em auto;max-width:95%}.Blog>*{margin:2em 0}.pagination{text-align:center}.post-header{border-bottom:thin solid}.post-title{margin:0;font-size:1.3em}.post-date{display:block}.side>*{margin:2em 0;flex:1 1 15em}.labels-title,.archives-title{margin:0;font-size:1em}.side{display:flex;flex-wrap:wrap;margin:auto;max-width:95%}.archives-monthly{padding-left:2.5em}]]></b:skin>
+<b:skin><![CDATA[*{box-sizing:border-box}body{overflow-wrap:break-word;word-break:break-all;max-width:98%;margin:auto;line-height:1.6;font-family:sans-serif;color:#1c2018;background-color:#ece8cc}a{color:#004870;text-decoration:underline}a:hover,a:focus{outline:thin dashed}a:active{outline:medium solid}pre,code,samp,kbd{font-size:1em;font-family:monospace, monospace;background-color:#dcdcdc}blockquote{border:thin solid;border-radius:0.5em;padding:0.5em}table{border-collapse:collapse}th,td{border:thin solid}.main>*{margin:2em auto}.Blog>*{margin:2em 0}.pagination{display:flex;flex-wrap:wrap}.pagination>*{flex:1 1 15em;text-align:center;margin:1em}.post-header{border-bottom:thin solid}.post-title{margin:0;font-size:1.3em}.post-date{display:block}.side>*{margin:2em 1em 2em 0;flex:1 1 20em}.labels-title,.archives-title{margin:0;font-size:1em}.side{display:flex;flex-wrap:wrap}.archives-monthly{padding-left:1.5em;display:list-item;list-style:disc inside}]]></b:skin>
 <b:if cond='data:view.isPost'>
-<style>.post-body{margin:1em 0}@media screen{.post-body pre{overflow-x:auto}}.post-footer{border-top:thin solid}.post-author{display:inline;font-style:normal}.comments>*{margin:2em 0}.comments-pagination{text-align:center}.comment-header{border-bottom:thin solid}.comment-author{font-style:normal;font-weight:bold}</style>
-<!-- highlight.js (https://highlightjs.org) -->
-<link rel='stylesheet preload' as='style' href='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.1/build/styles/solarized-dark.min.css'/>
-<script async='async' src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.1/build/highlight.min.js'/>
+<style>.post-body{margin:1em 0}@media screen{.post-body pre{overflow-x:auto}}.post-footer{border-top:thin solid}.post-author{display:inline;font-style:normal}.comments>*{margin:2em 0}.comments-pagination{display:flex;flex-wrap:wrap}.comments-pagination>*{flex:1 1 15em;margin:1em;text-align:center}.comment-header{border-bottom:thin solid}.comment-author{font-style:normal;font-weight:bold}</style>
+<link rel='stylesheet preload' as='style' href='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.2/build/styles/solarized-dark.min.css'/>
+<script async='async' src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.2/build/highlight.min.js'/>
 <script>window.addEventListener("load", function(){hljs.configure({languages: []}); hljs.initHighlighting();})</script>
 </b:if>
 </head>
 &lt;!--<body/>--&gt;
 <body>
+
 <nav class='navigation'>
-  <a expr:href='data:blog.homepageUrl'><data:blog.title.escaped/></a>
+<a expr:href='data:blog.homepageUrl'><data:blog.title.escaped/></a>
 </nav>
+
 <b:section id='main' class='main'>
 <b:widget id='Blog1' locked='false' type='Blog' version='2' visible='true'>
 
@@ -45,129 +46,146 @@
 </b:widget-settings>
 
 <b:includable id='main'>
-  <b:if cond='data:view.isPost'>
-    <article class='post--item'>
-      <b:include name='post-header' data='data:posts.first'/>
-      <b:include name='post-body' data='data:posts.first'/>
-      <b:include name='post-footer' data='data:posts.first'/>
-    </article>
-    <b:include cond='data:newerPageUrl or data:olderPageUrl' name='pagination'/>
-    <b:include cond='data:posts.first.allowComments' name='comments' data='data:posts.first'/>
-  <b:else/>
-    <b:loop var='post' values='data:posts'>
-      <article class='post--index'>
-        <b:include name='post-title' data='data:post'/>
-        <b:include name='post-nav' data='data:post'/>
-      </article>
-    </b:loop>
-  <b:include cond='data:newerPageUrl or data:olderPageUrl' name='pagination'/>
-  </b:if>
+<b:if cond='data:view.isPost'>
+
+<article class='post--item'>
+<b:include name='post-header' data='data:posts.first'/>
+<b:include name='post-body' data='data:posts.first'/>
+<b:include name='post-footer' data='data:posts.first'/>
+</article>
+
+<b:include cond='data:newerPageUrl or data:olderPageUrl' name='pagination'/>
+<b:include cond='data:posts.first.allowComments' name='comments' data='data:posts.first'/>
+
+<b:else/>
+
+<b:loop var='post' values='data:posts'>
+<article class='post--index'>
+<b:include name='post-title' data='data:post'/>
+<b:include name='post-nav' data='data:post'/>
+</article>
+</b:loop>
+
+<b:include cond='data:newerPageUrl or data:olderPageUrl' name='pagination'/>
+
+</b:if>
 </b:includable>
 
 <b:includable id='pagination'>
-  <nav class='pagination'>
-    <b:if cond='data:newerPageUrl'>[<a expr:href='data:newerPageUrl'>‹ Next</a>]</b:if>
-    <b:if cond='data:olderPageUrl'>[<a expr:href='data:olderPageUrl'>Prev ›</a>]</b:if>
-  </nav>
+<nav class='pagination'>
+<b:if cond='data:newerPageUrl'>
+<div class='pagination-link'><a expr:href='data:newerPageUrl'>‹ Next</a></div>
+</b:if>
+
+<b:if cond='data:olderPageUrl'>
+<div class='pagination-link'><a expr:href='data:olderPageUrl'>Prev ›</a></div>
+</b:if>
+</nav>
 </b:includable>
 
 <b:includable id='post-header' var='post'>
-  <header class='post-header'>
-    <b:include name='post-title' data='data:post'/>
-    <b:include name='post-nav' data='data:post'/>
-  </header>
+<header class='post-header'>
+<b:include name='post-title' data='data:post'/>
+<b:include name='post-nav' data='data:post'/>
+</header>
 </b:includable>
 
 <b:includable id='post-title' var='post'>
-  <b:tag expr:name='data:view.isPost ? "h1" : "h2"' class='post-title'>
-    <a expr:href='data:post.url'><data:post.title.escaped/></a>
-  </b:tag>
+<b:tag expr:name='data:view.isPost ? "h1" : "h2"' class='post-title'>
+<a expr:href='data:post.url'><data:post.title.escaped/></a>
+</b:tag>
 </b:includable>
 
 <b:includable id='post-nav' var='post'>
-  <nav class='post-meta'>
-    <b:include name='post-date' data='data:post'/>
-    <b:include name='post-labels' data='data:post' cond='data:post.labels'/>
-  </nav>
+<nav class='post-meta'>
+<b:include name='post-date' data='data:post'/>
+<b:include name='post-labels' data='data:post' cond='data:post.labels'/>
+</nav>
 </b:includable>
 
 <b:includable id='post-date' var='post'>
-  <time class='post-date' expr:datetime='data:post.date.iso8601'>
-    <a expr:href='format(data:post.date, "/YYYY/")'><b:eval expr='format(data:post.date, "YYYY")'/></a>-<a expr:href='format(data:post.date, "/YYYY/MM/")'><b:eval expr='format(data:post.date, "MM")'/></a>-<b:eval expr='format(data:post.date, "dd")'/>
-  </time>
+<time class='post-date' expr:datetime='data:post.date.iso8601'>
+<a expr:href='format(data:post.date, "/YYYY/")'><b:eval expr='format(data:post.date, "YYYY")'/></a>-<a expr:href='format(data:post.date, "/YYYY/MM/")'><b:eval expr='format(data:post.date, "MM")'/></a>-<b:eval expr='format(data:post.date, "dd")'/>
+</time>
 </b:includable>
 
 <b:includable id='post-labels' var='post'>
-  <div class='post-labels'>
-    Labels: <b:loop var='label' values='data:post.labels' index='i'>
-      [<a expr:href='data:label.url'><data:label.name.escaped/></a>]
-    </b:loop>
-  </div>
+<div class='post-labels'>
+Labels: <b:loop var='label' values='data:post.labels' index='i'>
+ [<a expr:href='data:label.url'><data:label.name.escaped/></a>]
+</b:loop>
+</div>
 </b:includable>
 
 <b:includable id='post-body' var='post'>
-  <div class='post-body'><data:post.body/></div>
+<div class='post-body'><data:post.body/></div>
 </b:includable>
 
 <b:includable id='post-footer' var='post'>
-  <footer class='post-footer'>
-    <b:include name='post-author' data='post'/>
-  </footer>
+<footer class='post-footer'>
+<b:include name='post-author' data='post'/>
+</footer>
 </b:includable>
 
 <b:includable id='post-author' var='post'>
-  Author: <address class='post-author'>
-    <a expr:href='data:post.author.profileUrl' rel='author'><data:post.author.name/></a>
-  </address>
+Author: <address class='post-author'>
+<a expr:href='data:post.author.profileUrl' rel='author'><data:post.author.name/></a>
+</address>
 </b:includable>
 
 <b:includable id='comments' var='post'>
-  <aside class='comments'>
-    <b:include name='comments-header' data='data:post'/>
-    <b:loop var='comment' values='data:post.comments'>
-      <b:include name='comment' data='data:comment'/>
-    </b:loop>
-    <b:include cond='data:post.commentPagingRequired' name='comments-pagination' data='data:post'/>
-  </aside>
+<aside class='comments'>
+<b:include name='comments-header' data='data:post'/>
+
+<b:loop var='comment' values='data:post.comments'>
+<b:include name='comment' data='data:comment'/>
+</b:loop>
+
+<b:include cond='data:post.commentPagingRequired' name='comments-pagination' data='data:post'/>
+</aside>
 </b:includable>
 
 <b:includable id='comments-header' var='post'>
-  <header class='comments-header'>
-    <a class='comments-formLink' expr:href='data:post.embedCommentForm ? data:post.commentFormIframeSrc : data:post.commentsUrl'>post a comment</a>
-  </header>
+<header class='comments-header'>
+<a class='comments-formLink' expr:href='data:post.embedCommentForm ? data:post.commentFormIframeSrc : data:post.commentsUrl'>post a comment</a>
+</header>
 </b:includable>
 
 <b:includable id='comments-pagination' var='post'>
-  <nav class='comments-pagination'>
-    <b:if cond='data:post.hasOlderLinks'>
-      [<a expr:href='data:post.oldestLinkUrl'>« First</a>]
-      [<a expr:href='data:post.olderLinkUrl'>‹ Prev</a>]
-    </b:if>
-    <b:if cond='data:post.hasNewerLinks'>
-      [<a expr:href='data:post.newerLinkUrl'>Next ›</a>]
-      [<a expr:href='data:post.newestLinkUrl'>Last »</a>]
-    </b:if>
-  </nav>
+<nav class='comments-pagination'>
+<b:if cond='data:post.hasOlderLinks'>
+<div class='comments-olderLink'><a expr:href='data:post.oldestLinkUrl'>« First</a></div>
+<div class='comments-olderLink'><a expr:href='data:post.olderLinkUrl'>‹ Prev</a></div>
+</b:if>
+
+<b:if cond='data:post.hasNewerLinks'>
+<div class='comments-newerLink'><a expr:href='data:post.newerLinkUrl'>Next ›</a></div>
+<div class='comments-newerlink'><a expr:href='data:post.newestLinkUrl'>Last »</a></div>
+</b:if>
+</nav>
 </b:includable>
 
 <b:includable id='comment' var='comment'>
-  <article class='comment'>
-    <header class='comment-header'>
-      <b:include name='comment-author' data='data:comment'/>
-      <time class='comment-date'><data:comment.timestamp/></time>
-    </header>
-    <p class='comment-body'><data:comment.body/></p>
-  </article>
+<article class='comment'>
+<header class='comment-header'>
+<b:include name='comment-author' data='data:comment'/>
+<time class='comment-date'><data:comment.timestamp/></time>
+</header>
+
+<p class='comment-body'><data:comment.body/></p>
+</article>
 </b:includable>
 
 <b:includable id='comment-author' var='comment'>
-  <b:if cond='data:comment.authorUrl'>
-    <address class='comment-author'>
-      <a expr:href='data:comment.authorUrl' rel='author'><data:comment.author.escaped/></a>
-    </address>
-  <b:else/>
-    <div class='comment-author'><data:comment.author.escaped/></div>
-  </b:if>
+<b:if cond='data:comment.authorUrl'>
+<address class='comment-author'>
+<a expr:href='data:comment.authorUrl' rel='author'><data:comment.author.escaped/></a>
+</address>
+
+<b:else/>
+
+<div class='comment-author'><data:comment.author.escaped/></div>
+</b:if>
 </b:includable>
 
 </b:widget>
@@ -188,26 +206,31 @@
 </b:widget-settings>
 
 <b:includable id='main'>
-  <h2 class='archives-title'>Archives</h2>
-  <b:include name='hierarchy' data='data'/>
+<h2 class='archives-title'>Archives</h2>
+<b:include name='hierarchy' data='data'/>
 </b:includable>
 
 <b:includable id='hierarchy' var='archives'>
-  <b:loop var='i' values='data:archives'>
-    <b:if cond='data:i.data'>
-      <details class='archives-yearly'>
-        <b:attr cond='data:i.expclass eq "expanded"' name='open' value='open'/>
-        <summary>
-          <a expr:href='data:i.url'><data:i.name.escaped/></a>(<data:i.post-count/>)/
-        </summary>
-        <b:include name='hierarchy' data='data:i.data'/>
-      </details>
-    <b:else/>
-      <div class='archives-monthly'>
-        <a expr:href='data:i.url'><data:i.name.escaped/></a>(<data:i.post-count/>)
-      </div>
-    </b:if>
-  </b:loop>
+
+<b:loop var='i' values='data:archives'>
+<b:if cond='data:i.data'>
+
+<details class='archives-yearly'>
+<b:attr cond='data:i.expclass eq "expanded"' name='open' value='open'/>
+<summary>
+<a expr:href='data:i.url'><data:i.name.escaped/></a>(<data:i.post-count/>)/
+</summary>
+<b:include name='hierarchy' data='data:i.data'/>
+</details>
+
+<b:else/>
+
+<div class='archives-monthly'>
+<a expr:href='data:i.url'><data:i.name.escaped/></a>(<data:i.post-count/>)
+</div>
+
+</b:if>
+</b:loop>
 </b:includable>
 
 </b:widget>
@@ -222,13 +245,14 @@
 </b:widget-settings>
 
 <b:includable id='main'>
-  <h2 class='labels-title'>Labels</h2>
-  <nav class='labels-list'>
-    <b:loop var='label' values='data:labels' index='i'>
-        <a expr:href='data:label.url'><data:label.name.escaped/></a>(<data:label.count/>)
-        <b:eval expr='data:i + 1 lt data:labels.size ? ", " : ""'/>
-    </b:loop>
-  </nav>
+<h2 class='labels-title'>Labels</h2>
+
+<nav class='labels-list'>
+<b:loop var='label' values='data:labels' index='i'>
+<a expr:href='data:label.url'><data:label.name.escaped/></a>(<data:label.count/>)
+<b:eval expr='data:i + 1 lt data:labels.size ? ", " : ""'/>
+</b:loop>
+</nav>
 </b:includable>
 
 </b:widget>

@@ -12,7 +12,8 @@ $link-color: #004870;
 body {
     overflow-wrap: break-word;
     word-break: break-all;
-    margin: 0;
+    max-width: 98%;
+    margin: auto;
     line-height: 1.6;
     font-family: sans-serif;
     color: $default-color;
@@ -55,7 +56,6 @@ th, td {
 .main {
     > * {
         margin: 2em auto;
-        max-width: 95%;
     }
 }
 
@@ -64,7 +64,14 @@ th, td {
 }
 
 .pagination {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+        flex: 1 1 15em;
+        text-align: center;
+        margin: 1em;
+    }
 }
 
 .post {
@@ -83,8 +90,8 @@ th, td {
 }
 
 %side-widget {
-    margin: 2em 0;
-    flex: 1 1 15em;
+    margin: 2em 1em 2em 0;
+    flex: 1 1 20em;
 }
 
 %side-title {
@@ -95,8 +102,6 @@ th, td {
 .side {
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
-    max-width: 95%;
 
     > * {
         @extend %side-widget;
@@ -109,7 +114,9 @@ th, td {
     }
 
     &-monthly {
-        padding-left: 2.5em;
+        padding-left: 1.5em;
+        display: list-item;
+        list-style: disc inside;
     }
 }
 
