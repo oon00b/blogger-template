@@ -1,0 +1,11 @@
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &-link {
+        background: $background--main;
+        padding: 0.25rem;
+        margin: 0.5rem 1rem 0.5rem 0;
+    }
+}

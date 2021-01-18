@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+html {
+    color: $color;
+    background: $background;
+}
+
+body {
+    overflow-wrap: break-word;
+    line-height: 1.6;
+    font-family: sans-serif;
+    max-width: 98%;
+    margin: auto;
+}
+
+a {
+    color: $color-link;
+    text-decoration: underline;
+}
+
+a:hover, a:focus{
+    outline: thin dashed;
+}
+
+a:active {
+    outline: medium solid;
+}
+
+pre, code, samp, kbd {
+    font-size: 1em;
+    font-family: monospace, monospace;
+    background: $background-code;
+}
+
+blockquote {
+    border: thin solid;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: thin solid;
+}

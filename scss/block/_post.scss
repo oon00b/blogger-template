@@ -1,0 +1,29 @@
+.post {
+    background: $background--main;
+    padding: 0.25rem;
+
+    &-body {
+        border-top: thin solid $color-border--main;
+        border-bottom: thin solid $color-border--main;
+
+        @media screen {
+            pre {
+                overflow-x: auto;
+            }
+       }
+    }
+
+    &-title {
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    &-date {
+        display: block;
+    }
+
+    &-author {
+        display: inline;
+        font-style: normal;
+    }
+}

@@ -1,0 +1,11 @@
+.postList {
+    background: $background--main;
+
+    > * {
+        padding: 0.5rem 0.25rem;
+    }
+
+    > :not(:last-child) {
+        border-bottom: thin solid $color-border--main;
+    }
+}

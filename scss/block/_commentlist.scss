@@ -1,0 +1,25 @@
+.commentList {
+    background: $background--main;
+
+    > :not(:last-child) {
+        border-bottom: thin solid $color-border--main;
+    }
+
+    &-header {
+        padding: 0.25rem;
+    }
+
+    &-item {
+        padding: 0.5rem 0.25rem;
+    }
+
+    &-pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &-paginationLink {
+        margin: 0.5rem;
+    }
+}
